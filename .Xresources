@@ -1,0 +1,62 @@
+!black
+*color0:  #4d4d4d
+*color8:  #5a5a5a
+!red
+*color1:  #C70031
+*color9:  #F05178
+!green
+*color2:  #29CF13
+*color10: #6CE05C
+!yellow
+*color3:  #D8E30E
+*color11: #F3F79E
+!blue
+*color4:  #3449D1
+*color12: #97A4F7
+!magenta
+*color5:  #8400FF
+*color13: #C495F0
+!cyan
+*color6:  #0798AB
+*color14: #68F2E0
+!white
+*color7:  #E2D1E3
+*color15: #FFFFFF
+
+URxvt*background: #151515
+URxvt*foreground: #aeaeae
+URxvt*font: xft:GohuFont:style=Regular:size=7
+URxvt*boldFont: xft:GohuFont:style=Bold:size=7
+URxvt*scrollBar: False
+URxvt*termName: rxvt-256color
+URxvt*perl-lib: /home/cmr/.local/share/urxvt-scripts
+URxvt*perl-ext-common: url-select,clipboard
+
+URxvt.keysym.M-u: perl:url-select:select_next
+
+URxvt.urlLauncher : firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-c: perl:clipboard:copy
+
+*newLoginCommand: lxdm -c USER_SWITCH
+
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #E6E6E6
+xscreensaver.Dialog.background:         #3C3C3C
+xscreensaver.Dialog.topShadowColor:     #3C3C3C
+xscreensaver.Dialog.bottomShadowColor:  #3C3C3C
+xscreensaver.Dialog.Button.foreground:  #E6E6E6
+xscreensaver.Dialog.Button.background:  #2E2E2E
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #E6E6E6
+xscreensaver.Dialog.text.background:    #2E2E2E
+xscreensaver.Dialog.internalBorderWidth:1
+xscreensaver.Dialog.borderWidth:        1
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #E6E6E6
+xscreensaver.passwd.thermometer.background:  #2E2E2E
+xscreensaver.passwd.thermometer.width:       8
