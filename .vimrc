@@ -5,21 +5,23 @@
 set shortmess+=I
 """ Global Things, should be set first
 set nocompatible " Screw vi
+let g:vundle_default_git_proto = 'git'
+
 filetype off
 set modeline modelines=5 " I like modelines. They please me.
 set laststatus=2
 let g:Powerline_symbols = "unicode"
 
 "VUNDLE
-set rtp+=~/.vim/bundle/bundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " TODO: make sure all the old plugins I manually installed are bundled instead
+Bundle 'gmarik/vundle'
 Bundle 'wavded/vim-stylus'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/zencoding-vim'
-Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tpope/vim-ragtag'
@@ -31,12 +33,14 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'pythoncomplete'
 Bundle 'gotcha/vimpdb'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'tasklist.vim'
-Bundle 'Rainbow Parenthesis'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'TagHighlight'
 Bundle 'baskerville/bubblegum'
-
+Bundle 'tpope/vim-fugitive'
+Bundle 'ervandew/supertab'
+Bundle 'xolox/vim-lua-inspect'
+" install clang_complete manually!
+"
 " My leader is , NOT \
 let maplocalleader = "," 
 let g:maplocalleader = ","
@@ -146,3 +150,14 @@ let g:LycosaExplorerSuppressPythonWarning = 1
 
 " Visible whitespace
 set listchars=tab:>-,eol:$,trail:.,extends:#
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+
+" clang_complete
+let g:clang_auto_select = 1
+let g:clang_hl_errors = 1
+let g:clang_close_preview = 1
+let g:clang_complete_macros = 1
+let g:clang_complete_copen = 1
