@@ -18,7 +18,6 @@ export LC_COLLATE=C
 export MINICOM="-m -c on"
 
 export CPATH=/usr/local/include
-export GISTY_ACCESS_TOKEN=a3de9c2ce835785b6cbac0bfe4235d22354a4fa7
 export GISTY_DIR=~/entropy/gists
 
 export _JAVA_AWT_WM_NONREPARENTING=1
