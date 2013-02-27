@@ -47,3 +47,6 @@ setopt AUTO_MENU
 setopt auto_pushd
 # 'pushd' == 'pushd $HOME'
 setopt PUSHD_TO_HOME
+
+# Don't use the cache
+zstyle "completion:*:commands" rehash 1
