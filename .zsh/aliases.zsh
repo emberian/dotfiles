@@ -18,5 +18,4 @@ ki() {
 	make -j12
 	sudo make modules_install
 	sudo cp arch/x86/boot/bzImage /boot/vmlinuz-cmr-staging
-	sudo reboot
 }
