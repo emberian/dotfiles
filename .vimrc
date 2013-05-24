@@ -15,32 +15,20 @@ let g:Powerline_symbols = "unicode"
 "VUNDLE
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-" TODO: make sure all the old plugins I manually installed are bundled instead
+
 Bundle 'gmarik/vundle'
-Bundle 'wavded/vim-stylus'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'tpope/vim-ragtag'
 Bundle 'CSApprox'
 Bundle 'LycosaExplorer'
-Bundle 'pangloss/vim-javascript'
-Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'pythoncomplete'
-Bundle 'gotcha/vimpdb'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'wlangstroth/vim-racket'
 Bundle 'TagHighlight'
 Bundle 'baskerville/bubblegum'
 Bundle 'tpope/vim-fugitive'
-Bundle 'ervandew/supertab'
-Bundle 'xolox/vim-lua-inspect'
-" install clang_complete manually!
-"
+Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'godlygeek/tabular'
+
 " My leader is , NOT \
 let maplocalleader = "," 
 let g:maplocalleader = ","

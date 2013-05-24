@@ -12,3 +12,9 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
 	helper = cache --timeout=3600000
+[git-tf "server"]
+	username = cmr
+[color]
+	ui = true
+[pull]
+	rebase = true
