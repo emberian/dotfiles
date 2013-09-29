@@ -28,11 +28,14 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'godlygeek/tabular'
+Bundle 'octol/vim-cpp-enhanced-highlight'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Wombat'
 
 " My leader is , NOT \
-let maplocalleader = "," 
+let maplocalleader = ","
 let g:maplocalleader = ","
-let mapleader = "," 
+let mapleader = ","
 let g:mapleader = ","
 
 """ Random Misc
@@ -45,6 +48,7 @@ filetype plugin on
 set ofu=syntaxcomplete#Complete
 filetype indent on
 autocmd BufNewFile,BufRead *.vb set ft=vbnet " Ensure VB code gets highlighted
+autocmd BufNewFile,BufRead *.ll set ft=llvm
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -53,6 +57,7 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType rust set et
 
 """ UI Things
 set so=4 " 4 lines above and below cursor before scrolling begins
@@ -149,3 +154,16 @@ let g:clang_hl_errors = 1
 let g:clang_close_preview = 1
 let g:clang_complete_macros = 1
 let g:clang_complete_copen = 1
+
+let g:syntastic_python_checkers=['pep8']
+let g:syntastic_python_pep8_args='--ignore=E501'
+
+" Eclim + YCM
+let g:EclimCompletionMethod = 'omnifunc'
+
+" vim-latex
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+
+" remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
