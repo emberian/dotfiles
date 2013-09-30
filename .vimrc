@@ -7,7 +7,6 @@ set shortmess+=I
 set nocompatible " Screw vi
 let g:vundle_default_git_proto = 'git'
 
-filetype off
 set modeline modelines=5 " I like modelines. They please me.
 set laststatus=2
 let g:Powerline_symbols = "unicode"
@@ -85,7 +84,7 @@ syntax enable
 colorscheme bubblegum
 set encoding=utf8
 try
-    lang en_US
+    lang en_US.UTF-8 "Portable
 catch
 endtry
 
