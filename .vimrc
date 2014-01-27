@@ -9,7 +9,6 @@ let g:vundle_default_git_proto = 'git'
 
 set modeline modelines=5 " I like modelines. They please me.
 set laststatus=2
-let g:Powerline_symbols = "unicode"
 
 "VUNDLE
 set rtp+=~/.vim/bundle/vundle/
@@ -17,7 +16,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'CSApprox'
 Bundle 'LycosaExplorer'
 Bundle 'fholgado/minibufexpl.vim'
@@ -29,6 +28,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'godlygeek/tabular'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tikhomirov/vim-glsl'
 Bundle 'Wombat'
 
 " My leader is , NOT \
