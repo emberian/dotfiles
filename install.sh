@@ -5,7 +5,7 @@ old_dir=$HOME/.dotfiles_old
 if [ ! -f $PWD/README ]; then
 	echo "I couldn't find README. Did you run install.sh from the dotfiles
 	directory?"
-	exit 1;
+	exit 1
 fi
 
 files_all=$PWD/*
@@ -22,7 +22,7 @@ echo "Backing up existing dotfiles to $old_dir"
 
 if [ -d $old_dir ]; then
 	echo "ERROR: $old_dir already exists!"
-	exit 1;
+	exit 1
 fi
 
 mkdir $old_dir
@@ -37,3 +37,27 @@ for file in $files; do
 	echo "Installing link to $base"
 	ln -s $file $HOME/$base
 done
+
+if [ -d $HOME/.vim/bundle/vundle ]; then
+	exit 0
+fi
+
+wgit=`which git`
+wvim=`which vim`
+
+if [ -z $wvim ]; then
+	echo "Vim not found in PATH; not boostrapping vundle"
+	exit 0
+fi
+
+if [ -z $wgit ]; then
+	echo "Git not found in PATH; not bootstrapping vundle"
+	exit 0
+fi
+
+echo "Bootstrapping vundle to $HOME/.vim"
+
+mkdir -p $HOME/.vim/bundle/vundle
+cd $HOME/.vim/bundle
+git clone https://github.com/gmarik/vundle.git
+cd -
