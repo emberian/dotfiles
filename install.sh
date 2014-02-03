@@ -9,12 +9,14 @@ if [ ! -f $PWD/README ]; then
 fi
 
 files_all=$PWD/*
+files_config=$PWD/config/*
 
 for file in $files_all; do
 	case "$file" in
 		$PWD/README) ;;
-	$PWD/install.sh) ;;
-	*) files="$files $file" ;;
+		$PWD/install.sh) ;;
+		$PWD/config*) ;;
+		*) files="$files $file" ;;
 	esac
 done
 
@@ -26,11 +28,39 @@ if [ -d $old_dir ]; then
 fi
 
 mkdir $old_dir
+mkdir $old_dir/.config
 
 for file in $files; do
 	base=`basename $file`
 	base=".$base"
 	if [ -e $HOME/$base ]; then
+		if [ -L $HOME/$base ]; then
+			if [ `readlink $HOME/$base` = $file ]; then
+				echo "Ignoring existing dotfile $base"
+				continue
+			fi
+		fi
+		echo "Backing up $base"
+	    mv $HOME/$base $old_dir/$base
+	fi
+	echo "Installing link to $base"
+	ln -s $file $HOME/$base
+done
+
+if [ ! -d $HOME/.config ]; then
+	mkdir $HOME/.config
+fi
+
+for file in $files_config; do
+	base=`basename $file`
+	base=".config/$base"
+	if [ -e $HOME/$base ]; then
+		if [ -L $HOME/$base ]; then
+			if [ `readlink $HOME/$base` = $file ]; then
+				echo "Ignoring existing dotfile $base"
+				continue
+			fi
+		fi
 		echo "Backing up $base"
 		mv $HOME/$base $old_dir/$base
 	fi
