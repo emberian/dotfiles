@@ -7,29 +7,28 @@ set shortmess+=I
 set nocompatible " Screw vi
 let g:vundle_default_git_proto = 'git'
 
+filetype off
 set modeline modelines=5 " I like modelines. They please me.
 set laststatus=2
 
 "VUNDLE
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'CSApprox'
-Bundle 'LycosaExplorer'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'TagHighlight'
-Bundle 'baskerville/bubblegum'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'godlygeek/tabular'
-Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tikhomirov/vim-glsl'
-Bundle 'Wombat'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'CSApprox'
+Plugin 'baskerville/bubblegum'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'blinks/vim-antlr'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
 
 " My leader is , NOT \
 let maplocalleader = ","
@@ -44,19 +43,11 @@ set history=500
 
 """ Filetypes on, as well as indentation and completion.
 filetype plugin on
-set ofu=syntaxcomplete#Complete
 filetype indent on
 autocmd BufNewFile,BufRead *.vb set ft=vbnet " Ensure VB code gets highlighted
 autocmd BufNewFile,BufRead *.ll set ft=llvm
 autocmd BufNewFile,BufRead *.less set filetype=less
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType rust set et
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 """ UI Things
 set so=4 " 4 lines above and below cursor before scrolling begins
@@ -72,6 +63,16 @@ set novisualbell
 set tm=500 " half a second to hit a key after leader
 set showmatch " Show me matching braces etc
 
+""" Styles, colors, etc
+syntax enable
+colorscheme bubblegum
+
+set encoding=utf8
+try " try for machines where locales are broken
+    lang en_US
+catch
+endtry
+
 " Style to apply to current line the cursor is on
 highlight CursorLine guibg=grey
 " Highlight the line the cursor is on in insert mode
@@ -79,24 +80,13 @@ au InsertLeave * set nocursorline
 au InsertEnter * set cursorline
 set nolazyredraw " Don't redraw while executing macros -- saves proc time
 
-""" Styles, colors, etc
-syntax enable
-colorscheme bubblegum
-set encoding=utf8
-try
-    lang en_US.UTF-8 "Portable
-catch
-endtry
-
 set ffs=unix,dos,mac " Default line endings
 
 """ Insert mode
 set backspace=eol,start,indent " Allow backspace to cross those boundaries
 set whichwrap+=<,>,h,l " Allow those keys to change lines when hitting end
-" Use tabs for indentation, space for alignment
-set noexpandtab " Make tabs behave properly
+set et
 set shiftwidth=4
-set softtabstop=0
 set tabstop=4
 set smarttab
 set tw=78 " A sane default
@@ -105,7 +95,7 @@ set smartindent " Be smart about it
 
 """ Searching and stuff
 set ignorecase " Ignore case while searching
-set smartcase " Don't think this does anything with ignorecase, investigate later
+set smartcase " But if I have an uppercase letter in the search, make it case sensitive
 set incsearch " Do a proper incremental search
 set hlsearch " Highlight search results
 
@@ -116,8 +106,8 @@ set undofile
 """ Keybindings
 
 " Move left and right when nowrap
-map <C-L> 5zl
-map <C-H> 5zh
+map <C-L> 10zl
+map <C-H> 10zh
 " Make numbers go away
 map <silent> <leader># :set number! <CR>
 " Pop a NERDTree
@@ -131,38 +121,13 @@ map <leader>ss :setlocal spell!<CR>
 
 """ Abbreviations and common fixes
 iabbrev teh the
+iabbrev functino function
 
-" MiniBufExpl
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows =1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-let g:LycosaExplorerSuppressPythonWarning = 1
-
-" Visible whitespace
+" Visible whitespace (for list)
 set listchars=tab:>-,eol:$,trail:.,extends:#
-
-" SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
-
-" clang_complete
-let g:clang_auto_select = 1
-let g:clang_hl_errors = 1
-let g:clang_close_preview = 1
-let g:clang_complete_macros = 1
-let g:clang_complete_copen = 1
-
-let g:syntastic_python_checkers=['pep8']
-let g:syntastic_python_pep8_args='--ignore=E501'
 
 " Eclim + YCM
 let g:EclimCompletionMethod = 'omnifunc'
-
-" vim-latex
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
