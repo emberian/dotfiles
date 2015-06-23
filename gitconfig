@@ -3,7 +3,8 @@
 	name = Corey Richardson
 [core]
 	autocrlf = input
-	eol = lf
+    eol = lf
+    excludesfile = ~/.gitignore
 [branch]
 	autosetuprebase = always
 [push]
