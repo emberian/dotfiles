@@ -87,7 +87,6 @@ fi
 
 echo "Bootstrapping vundle to $HOME/.vim"
 
-mkdir -p $HOME/.vim/bundle/vundle
-cd $HOME/.vim/bundle
-git clone https://github.com/gmarik/vundle.git
+mkdir -p $HOME/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd -

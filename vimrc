@@ -4,11 +4,15 @@
 " No global message splash on start
 set shortmess+=I
 """ Global Things, should be set first
-set nocompatible " Screw vi
+set nocompatible
 let g:vundle_default_git_proto = 'git'
+
+" Otherwise it tries to use your login shell, which is no bueno with fish.
+set shell=/bin/sh
 
 filetype off
 set modeline modelines=5 " I like modelines. They please me.
+set background=dark
 set laststatus=2
 
 "VUNDLE
@@ -25,8 +29,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
-Plugin 'blinks/vim-antlr'
 Plugin 'tpope/vim-surround'
+Plugin 'the-lambda-church/coquille'
+Plugin 'def-lkb/vimbufsync'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -35,6 +41,7 @@ let maplocalleader = ","
 let g:maplocalleader = ","
 let mapleader = ","
 let g:mapleader = ","
+let g:gitgutter_max_signs=100000
 
 """ Random Misc
 set history=500
@@ -48,6 +55,9 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet " Ensure VB code gets highlighted
 autocmd BufNewFile,BufRead *.ll set ft=llvm
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.html set sw=2
+autocmd BufNewFile,BufRead *.css set sw=2
+autocmd BufNewFile,BufRead *.v CoqLaunch
 
 """ UI Things
 set so=4 " 4 lines above and below cursor before scrolling begins
@@ -108,16 +118,6 @@ set undofile
 " Move left and right when nowrap
 map <C-L> 10zl
 map <C-H> 10zh
-" Make numbers go away
-map <silent> <leader># :set number! <CR>
-" Pop a NERDTree
-map <silent> <leader>f :execute "NERDTreeToggle" getcwd()<CR>
-" Make highlights go away
-map <silent> <leader>n :noh<CR>
-" Edit the vimrc
-map <leader>e :e! ~/.vimrc<CR>
-" Spell check
-map <leader>ss :setlocal spell!<CR>
 
 """ Abbreviations and common fixes
 iabbrev teh the
@@ -125,9 +125,6 @@ iabbrev functino function
 
 " Visible whitespace (for list)
 set listchars=tab:>-,eol:$,trail:.,extends:#
-
-" Eclim + YCM
-let g:EclimCompletionMethod = 'omnifunc'
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e

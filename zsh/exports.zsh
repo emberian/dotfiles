@@ -5,14 +5,12 @@ export PATH=~/.local/bin:/opt/android-sdk/tools:$PATH
 # Setup terminal, and turn on colors
 export CLICOLOR=1
 
-# Enable color in grep
-export GREP_OPTIONS='--color=auto'
-
 export PAGER='less'
 export EDITOR='vim'
 
 # ctags sorting in vim/emacs is better behaved with this in place
-export LANG=en_GB.UTF-8
+export LANG=en_US.UTF-8
+export MULTIRUST_HOME=/home/cmr/.multirust
 export LC_COLLATE=C
 
 export MINICOM="-m -c on"
@@ -28,3 +26,4 @@ export k=/steam/SteamApps/common/Kerbal\ Space\ Program
 export CLASSPATH=".:/usr/share/java/antlr-complete.jar:$CLASSPATH"
 
 export WINEARCH=win64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
