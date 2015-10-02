@@ -75,7 +75,7 @@ set showmatch " Show me matching braces etc
 
 """ Styles, colors, etc
 syntax enable
-colorscheme bubblegum
+colorscheme bubblegum-256-dark
 
 set encoding=utf8
 try " try for machines where locales are broken
