@@ -29,13 +29,13 @@ URxvt*font: xft:Source Code Pro:style=Regular:size=16
 URxvt*boldFont: xft:Source Code Pro:style=Bold:size=16
 URxvt*scrollBar: False
 URxvt*termName: rxvt-256color
-URxvt*perl-lib: /home/cmr/.local/share/urxvt-scripts
-URxvt*perl-ext-common: url-select,clipboard
+URxvt*perl-ext-common: default,url-select,clipboard
 
 URxvt.keysym.M-u: perl:url-select:select_next
 
-URxvt.urlLauncher : firefox
-URxvt.underlineURLs: true
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.url-select.underline: true
+URxvt.url-select.launcher: /usr/bin/firefox
 URxvt.urlButton: 1
 
 URxvt.keysym.M-v: perl:clipboard:paste
