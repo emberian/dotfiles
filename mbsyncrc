@@ -1,0 +1,21 @@
+IMAPAccount fastmail
+Host mail.messagingengine.com
+Port 992
+User cmr@fastmail.se
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.email-pass.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore fastmail-remote
+Account fastmail
+
+MaildirStore fastmail-local
+Path ~/.mail/fastmail/
+Inbox ~/.mail/fastmail/Inbox
+
+Channel fastmail
+Master :fastmail-remote:
+Slave :fastmail-local:
+Patterns *
+Create Both
+SyncState *
