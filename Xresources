@@ -25,8 +25,8 @@
 
 URxvt*background: #151515
 URxvt*foreground: #aeaeae
-URxvt*font: xft:GohuFont:style=Regular:size=7
-URxvt*boldFont: xft:GohuFont:style=Bold:size=7
+URxvt*font: xft:Source Code Pro:style=Regular:size=16
+URxvt*boldFont: xft:Source Code Pro:style=Bold:size=16
 URxvt*scrollBar: False
 URxvt*termName: rxvt-256color
 URxvt*perl-lib: /home/cmr/.local/share/urxvt-scripts
