@@ -88,7 +88,8 @@ highlight CursorLine guibg=grey
 " Highlight the line the cursor is on in insert mode
 au InsertLeave * set nocursorline
 au InsertEnter * set cursorline
-set nolazyredraw " Don't redraw while executing macros -- saves proc time
+set nolazyredraw " *do* redraw while executing macros -- some plugin now or in
+                 " the past had glitches with lazyredraw...
 
 set ffs=unix,dos,mac " Default line endings
 
