@@ -1,0 +1,22 @@
+# vim: set ft=muttrc
+set editor=vim
+set mbox_type=Maildir
+set folder=$HOME/.mail/fastmail
+set spoolfile=+/
+set header_cache=~/.cache/mutt
+set realname="Corey Richardson"
+set sendmail="/usr/bin/msmtp"
+set signature="~/.signature"
+
+set edit_headers=yes
+set folder=~/.mail/fastmail
+set mbox=+Archive
+set spoolfile=+Inbox
+set record="+Sent Items"
+set postponed=+Drafts
+
+set sort=threads
+set send_charset="utf-8"
+
+mailboxes +github +riscv +rust +sel4 +isabelle +Inbox +Clarkson
+
