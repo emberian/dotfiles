@@ -14,6 +14,7 @@ if [ -d "$old_dir" ]; then
 	exit 1
 fi
 
+# Adds a leading . if it's necessary
 function trans_name() {
 if [ $(dirname $1) = "" ] || [ $(dirname $1) = "." ]; then
     echo ./.$(basename $1)
@@ -22,6 +23,7 @@ else
 fi
 }
 
+# Backs up files we're about to clobber.
 find . -type f ! -path '*.git/*' -print0 | while IFS= read -r -d $'\0' path; do
 if [ -f "$HOME/$(trans_name $path)" ]; then
     mkdir -p "$old_dir/$(dirname $path)"
@@ -29,14 +31,17 @@ if [ -f "$HOME/$(trans_name $path)" ]; then
 fi
 done
 
+# Create directory structure corresponding to this one.
 find . -type d ! -path '*.git/*' -exec mkdir -p "$HOME/{}" \;
 
+# Create links to files here, changing the name to add a leading . if the file
+# isn't in a directory.
 find . -type f ! -path '*.git/*' -print0 | while IFS= read -r -d $'\0' path; do
 ln -sf "$PWD/$path" "$HOME/$(trans_name $path)"
 done
 
+# If vim and git are available, clone the Vundle repo to the requiste place.
 if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
-    # already bootstrapped, don't touch it.
     true
 else
     wgit=`which git`
