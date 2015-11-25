@@ -4,9 +4,14 @@ set mbox_type=Maildir
 set folder=$HOME/.mail/fastmail
 set spoolfile=+/
 set header_cache=~/.cache/mutt
+
 set realname="Corey Richardson"
-set sendmail="/usr/bin/msmtp"
+set from="corey@octayn.net"
+set use_from=yes
+
 set signature="~/.signature"
+
+set sendmail="/usr/bin/msmtp"
 
 set edit_headers=yes
 set folder=~/.mail/fastmail
@@ -18,5 +23,6 @@ set postponed=+Drafts
 set sort=threads
 set send_charset="utf-8"
 
-mailboxes +github +riscv +rust +sel4 +isabelle +Inbox +Clarkson
+mailboxes +ltst +github +riscv +rust +sel4 +isabelle +Inbox +Clarkson
 
+bind index ^<tab> next-unread-mailbox
