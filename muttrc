@@ -1,6 +1,6 @@
-source ~/.mutt/basic.rc
-source ~/.mutt/theme.rc
-source ~/.mutt/pgp.rc
+source ~/.config/mutt/basic.rc
+source ~/.config/mutt/theme.rc
+source ~/.config/mutt/pgp.rc
 
 # Archive when hitting the delete key (from Gary Bernhardt's config)
 macro index y "<save-message>+Archive<enter>"
