@@ -1,6 +1,7 @@
 [user]
 	email = corey@octayn.net
 	name = Corey Richardson
+	signingkey = 9456AE7C
 [core]
 	autocrlf = input
     eol = lf
@@ -8,7 +9,8 @@
 [branch]
 	autosetuprebase = always
 [push]
-	default = current
+    default = current
+    gpgSign = if-asked
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
@@ -18,4 +20,6 @@
 [color]
 	ui = true
 [pull]
-	rebase = true
+    rebase = true
+[commit]
+    gpgSign = true
