@@ -1,13 +1,13 @@
 # vim: set ft=muttrc
 set editor=vim
 set mbox_type=Maildir
-set folder=$HOME/.mail/fastmail
-set spoolfile=+/
 set header_cache=~/.cache/mutt
 
 set realname="Corey Richardson"
 set from="corey@octayn.net"
+alternates "richarcm@clarkson.edu|crichardson@thinkful.com"
 set use_from=yes
+set reverse_name
 
 set signature="~/.signature"
 
@@ -23,6 +23,6 @@ set postponed=+Drafts
 set sort=threads
 set send_charset="utf-8"
 
-mailboxes +ltst +github +riscv +rust +sel4 +isabelle +Inbox +Clarkson
+mailboxes + `find ~/.mail/fastmail -type d ! -name 'cur' ! -name 'new' ! -name 'tmp' -printf '"%p" '`
 
 bind index ^<tab> next-unread-mailbox

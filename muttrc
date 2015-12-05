@@ -1,4 +1,5 @@
 source ~/.config/mutt/basic.rc
+source ~/.config/mutt/mimetypes.rc
 source ~/.config/mutt/theme.rc
 source ~/.config/mutt/pgp.rc
 
