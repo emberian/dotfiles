@@ -27,3 +27,5 @@ export CLASSPATH=".:/usr/share/java/antlr-complete.jar:$CLASSPATH"
 
 export WINEARCH=win64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+fpath=(/home/cmr/.zsh/completions $fpath)

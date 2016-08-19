@@ -1,18 +1,22 @@
 [user]
-	email = corey@octayn.net
+    email = corey@octayn.net
 	name = Corey Richardson
 	signingkey = 9456AE7C
 [core]
 	autocrlf = input
     eol = lf
-    excludesfile = ~/.gitignore
+    excludesFile = ~/.gitignore
+    editor = vim
 [branch]
 	autosetuprebase = always
 [push]
     default = current
     gpgSign = if-asked
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    pull-isabelle = pull
+    nicta = config user.email corey.richardson@nicta.com.au
+    home = config user.email corey@octayn.net
 [credential]
 	helper = cache --timeout=3600000
 [git-tf "server"]
@@ -23,3 +27,11 @@
     rebase = true
 [commit]
     gpgSign = true
+[fetch]
+    prune = true
+#[url "ssh://git@github.com/"]
+#	insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://cmr@gitlab.com/

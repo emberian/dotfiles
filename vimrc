@@ -33,6 +33,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'the-lambda-church/coquille'
 Plugin 'def-lkb/vimbufsync'
 Plugin 'rust-lang/rust.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'peter-edge/vim-capnp'
 
 call vundle#end()
 
@@ -42,6 +44,7 @@ let g:maplocalleader = ","
 let mapleader = ","
 let g:mapleader = ","
 let g:gitgutter_max_signs=100000
+let g:rainbow_active = 1
 
 """ Random Misc
 set history=500
@@ -57,7 +60,11 @@ autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.html set sw=2
 autocmd BufNewFile,BufRead *.css set sw=2
-autocmd BufNewFile,BufRead *.v CoqLaunch
+"autocmd BufNewFile,BufRead *.v CoqLaunch
+au BufRead,BufNewFile *.thy setfiletype isabelle
+au BufRead,BufNewFile *.thy set conceallevel=2
+au BufRead,BufNewFile *.txt set tw=72
+au BufRead,BufNewFile *.adoc set tw=10000
 
 """ UI Things
 set so=4 " 4 lines above and below cursor before scrolling begins
@@ -79,7 +86,7 @@ colorscheme bubblegum-256-dark
 
 set encoding=utf8
 try " try for machines where locales are broken
-    lang en_US
+    lang en_AU
 catch
 endtry
 
@@ -102,13 +109,19 @@ set tabstop=4
 set smarttab
 set tw=78 " A sane default
 set autoindent " Indent for me as I enter a block
-set smartindent " Be smart about it
+set cindent
+set cinkeys-=0#
+set indentkeys-=0#
 
 """ Searching and stuff
 set ignorecase " Ignore case while searching
 set smartcase " But if I have an uppercase letter in the search, make it case sensitive
 set incsearch " Do a proper incremental search
 set hlsearch " Highlight search results
+
+""" Mousey mouse.
+set mouse=a
+set ttymouse=sgr
 
 """ Backups and undo
 set undodir=~/.vim_runtime/undodir
@@ -128,4 +141,4 @@ iabbrev functino function
 set listchars=tab:>-,eol:$,trail:.,extends:#
 
 " remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
